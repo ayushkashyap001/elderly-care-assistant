@@ -21,11 +21,11 @@ make playground        # opens UI at http://localhost:18081
 ```mermaid
 graph TD
     START["START"] --> SecurityCheckpoint["Security Checkpoint Node"]
-    SecurityCheckpoint -- "safe" --> OrchestratorNode["Orchestrator Node"]
-    SecurityCheckpoint -- "unsafe" --> SecurityViolationNode["Security Violation Node"]
+    SecurityCheckpoint -->|safe| OrchestratorNode["Orchestrator Node"]
+    SecurityCheckpoint -->|unsafe| SecurityViolationNode["Security Violation Node"]
     
-    OrchestratorNode -- "done" --> FinalOutputNode["Final Output Node"]
-    OrchestratorNode -- "needs_confirmation" --> HumanVerificationNode["Human Verification Node"]
+    OrchestratorNode -->|done| FinalOutputNode["Final Output Node"]
+    OrchestratorNode -->|needs_confirmation| HumanVerificationNode["Human Verification Node"]
     
     HumanVerificationNode --> OrchestratorNode
     SecurityViolationNode --> FinalOutputNode
@@ -34,14 +34,14 @@ graph TD
         OrchestratorNode
         MedicationManager["Medication Manager (LlmAgent)"]
         DoctorVisitCoordinator["Doctor Visit Coordinator (LlmAgent)"]
-        OrchestratorNode -. "AgentTool" .-> MedicationManager
-        OrchestratorNode -. "AgentTool" .-> DoctorVisitCoordinator
+        OrchestratorNode -.->|AgentTool| MedicationManager
+        OrchestratorNode -.->|AgentTool| DoctorVisitCoordinator
     end
     
     subgraph Tools ["MCP Server Tools"]
         MCPServer["FastMCP Server"]
-        MedicationManager == "get_medications / log_medication_taken / add_medication_schedule" ==> MCPServer
-        DoctorVisitCoordinator == "get_appointments / schedule_appointment" ==> MCPServer
+        MedicationManager ==>|get_medications / log_medication_taken / add_medication_schedule| MCPServer
+        DoctorVisitCoordinator ==>|get_appointments / schedule_appointment| MCPServer
     end
 ```
 
