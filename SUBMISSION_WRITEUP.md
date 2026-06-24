@@ -35,11 +35,11 @@ graph TD
 ## Concepts Used
 
 This project implements all core ADK 2.0 and platform integration concepts:
-1. **ADK Workflow**: Sourced in [agent.py](file:///c:/Users/Asus/OneDrive/Documents/AI-Agents/adk-workspace/elder-care-assistant/app/agent.py#L173-L188). It defines a structured graph with 5 custom nodes and conditional/looping edges.
-2. **LlmAgent**: Configured for specialized roles (Orchestrator, Medication Manager, Doctor Visit Coordinator) with custom instructions in [agent.py](file:///c:/Users/Asus/OneDrive/Documents/AI-Agents/adk-workspace/elder-care-assistant/app/agent.py#L42-L99).
-3. **AgentTool**: Sourced in [agent.py](file:///c:/Users/Asus/OneDrive/Documents/AI-Agents/adk-workspace/elder-care-assistant/app/agent.py#L96). Used by the Orchestrator to delegate task execution dynamically while staying in control.
-4. **MCP Server**: Implemented in [mcp_server.py](file:///c:/Users/Asus/OneDrive/Documents/AI-Agents/adk-workspace/elder-care-assistant/app/mcp_server.py). Exposes SQLite-backed tools using standard stdio transport.
-5. **Security Checkpoint**: Implemented as the `security_checkpoint` node in [agent.py](file:///c:/Users/Asus/OneDrive/Documents/AI-Agents/adk-workspace/elder-care-assistant/app/agent.py#L101-L136).
+1. **ADK Workflow**: Sourced in [agent.py](app/agent.py#L173-L188). It defines a structured graph with 5 custom nodes and conditional/looping edges.
+2. **LlmAgent**: Configured for specialized roles (Orchestrator, Medication Manager, Doctor Visit Coordinator) with custom instructions in [agent.py](app/agent.py#L42-L99).
+3. **AgentTool**: Sourced in [agent.py](app/agent.py#L96). Used by the Orchestrator to delegate task execution dynamically while staying in control.
+4. **MCP Server**: Implemented in [mcp_server.py](app/mcp_server.py). Exposes SQLite-backed tools using standard stdio transport.
+5. **Security Checkpoint**: Implemented as the `security_checkpoint` node in [agent.py](app/agent.py#L101-L136).
 6. **Agents CLI**: Project scaffolded using `agents-cli scaffold create` and configured with default `.env` files.
 
 ## Security Design
